@@ -1,6 +1,16 @@
 "use client";
 
+import { PostOwner } from "@/components/PostOwner";
+import { Comment } from "@/components/Comment";
+import { comments } from "@/libs/comments";
+import { Reply } from "@/components/Reply";
+
 export default function HomePage() {
+
+
+
+
+
   return (
     <div
       style={{ minHeight: "100vh", backgroundColor: "ghostwhite" }}
@@ -12,7 +22,8 @@ export default function HomePage() {
         className="mx-auto p-3 rounded rounded-3 shadow-sm bg-white"
       >
         {/* Post Owner Example*/}
-        <div className="vstack gap-3">
+
+       {/* <div className="vstack gap-3">
           <div className="d-flex align-items-center gap-3">
             <img
               src="/profileImages/handsome.jpg"
@@ -21,7 +32,7 @@ export default function HomePage() {
               className="rounded-circle"
               style={{ objectFit: "cover" }}
             />
-            <span className="fw-semibold fs-5">Chayanin Suatap 650610560</span>
+            <span className="fw-semibold fs-5">Khongpop Yakhongko 650612078 </span>
           </div>
 
           <span>Quiz ง่ายจังเลยครับ ขอยาก ๆ กว่านี้ได้ไหม #261207</span>
@@ -31,10 +42,26 @@ export default function HomePage() {
             <span className="text-muted">100 คน</span>
           </div>
           <hr className="m-0 border" />
-        </div>
+        </div> */}
+        
+      <div>
+       <PostOwner 
+       imglike={"/like.svg"}
+       photo={"/profileImages/me.jpg"}
+       like={"100คน"}
+       text={"ง่ายจังเลยครับ ขอยาก ๆ กว่านี้ได้ไหม #261207"}
+       name={"Khongpop Yakhongko 650612078"}>
+       
+       </PostOwner>
+       </div>
+
+
+         {/* เปลี่ยนข้างบนเป็น component */}
+
+
 
         {/* Comment Example */}
-        <div className="d-flex gap-2 my-2">
+        {/* <div className="d-flex gap-2 my-2">
           <img
             src="/profileImages/lisa.jpg"
             width="48"
@@ -54,7 +81,19 @@ export default function HomePage() {
               <span className="text-muted">999 คน</span>
             </div>
           </div>
-        </div>
+        </div> */}
+
+       <Comment
+       likeNum={"999 คน"}
+       commentText={"จริงค่า"}
+       username={"Lisa"}
+       userImagePath={"/profileImages/lisa.jpg"}></Comment>
+
+
+
+
+
+        {/* เปลี่ยนข้างบนเป็นcomponent */}
 
         {/* Reply Example */}
         <div className="d-flex gap-2 my-2 ps-5">
@@ -78,8 +117,15 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+        
 
         {/* map-loop render Comment component here */}
+        {/* {Comment.map((x,i)=>(
+          <Reply
+          replyText={x.replyText}
+          key={i+1}
+          ></Reply>
+        ))} */}
       </div>
     </div>
   );
